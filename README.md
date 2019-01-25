@@ -1,6 +1,7 @@
 # cosine-similarity
 Example:
 
+```python
 # List of docs to test
 docs = ['one.txt', 'two.txt', 'three.txt', 'four.txt']
 
@@ -23,3 +24,4 @@ print("The difference between {} and {} is {}".format(docs[1], docs[3], angles[4
 print("The difference between {} and {} is {}".format(docs[2], docs[3], angles[5]))
 
 print("The minimum angle is {}".format(min(angles)))
+```
