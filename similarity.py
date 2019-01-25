@@ -47,3 +47,28 @@ def vec_angle(vec_one, vec_two):
     cos_val = dot/mag_one/mag_two
     angle = np.degrees(np.arccos(cos_val))
     return angle
+
+
+def get_angle_list(docs, vecs):
+    angles = {}
+    for i in range(len(vecs)-1):
+        for j in range(i+1, len(vecs)):
+            angles["{} and {}".format(docs[i], docs[j])] = vec_angle(vecs[i], vecs[j])
+    return angles
+
+
+def neat_print(angle_dict):
+    i = 0
+    for key in angle_dict.keys():
+        i += 1
+        print(i)
+        print("The angle between {} is {}".format(key, angle_dict[key]))
+
+
+def run(docs):
+    words = create_words_array(docs)
+    vectors = []
+    for doc in docs:
+        vectors.append(text_to_vec(doc, words))
+    angle_dict = get_angle_list(docs, vectors)
+    neat_print(angle_dict)
